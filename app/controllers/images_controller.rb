@@ -18,7 +18,6 @@ class ImagesController < ApplicationController
     	@image=Image.new(image_params)
     	if @image.save
     		redirect_to @image
-    		
     	else
     		render :new
     	end
@@ -34,7 +33,6 @@ class ImagesController < ApplicationController
     end
 
     def update
-  
         if @image.update(image_params)
         	redirect_to @image
         else
