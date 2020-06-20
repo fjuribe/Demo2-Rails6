@@ -1,0 +1,26 @@
+<%= render "image" %>
+<br>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Descipcion</th>
+			<th>Fecha que se creo</th>
+			<th>Fecha que se actualizó</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+	</thead>
+	<tbody>
+      <% @image.each do |image| %>
+		<tr>
+			<td><%= image.id %></td>
+			<td><%= image.description %></td>
+			<td><%= image.created_at %></td>
+			<td><%= image.updated_at %></td>
+			<td><%= link_to 'Editar',edit_image_path(image) %></td>
+			<td><%= link_to 'Eliminar',image,method: :delete,data:{confirm:"seguro?"} %></td>
+		</tr>
+	 <% end %>
+	</tbody>
+</table>
