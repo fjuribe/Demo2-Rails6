@@ -2,9 +2,9 @@
 	<figure>
 	<!-- 	<%= image_tag url_for(image.foto) %> -->
 	<% if image.foto.attached? %>
-	    <%= image_tag image.foto.preview(resize_to_limit: [100, 100]) %>
+	    <%= image_tag image %>
 	<% end %>
-		<!-- <img src="../../../public/img/bills.jpg" class="figure-img img-fluid rounded" alt=""> -->
+		<img src="../../../public/img/bills.jpg" class="figure-img img-fluid rounded" alt="">
 		<figcaption class="figure-caption">
 			<%= link_to 'Editar',edit_image_path(image) %>
 			<%= link_to 'Eliminar',image,method: :delete,data:{confirm:"seguro?"} %>

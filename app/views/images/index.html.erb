@@ -1,16 +1,18 @@
-<div class="row"> 
-<% @image.each do |image| %>
-<figure>
-	<% if image.foto.attached? %>
-	     <%= image_tag image.foto, :style=>'width:250px;' %>
-	<% end %>
-		<!-- <img src="../../../public/img/bills.jpg" class="figure-img img-fluid rounded" alt=""> -->
-		<figcaption class="figure-caption">
+<h1>Imagenes</h1>
+<br>
+<div class="card-columns">
+	<% @image.each do |image| %>
+	<div class="card">
+		<% if image.foto.attached? %>
+		<%= image_tag image.foto, :style=>'width:250px;' %>
+		<% end %>
+		<div class="card-body">
 			<%= link_to 'Editar',edit_image_path(image) %>
 			<%= link_to 'Eliminar',image,method: :delete,data:{confirm:"seguro?"} %>
-		</figcaption>
-	</figure>
-	 <% end %>
+		</div>
+		<!-- <img src="../../../public/img/bills.jpg" class="figure-img img-fluid rounded" alt=""> -->
+	</div>
+	<% end %>
 </div>
 <br>
 
