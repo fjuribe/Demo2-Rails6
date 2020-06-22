@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
 	before_action :set_image, only:[:show,:edit,:update,:destroy]
+    #image.foto.attach(image_params[:foto])
 	def index
 		@image=Image.all
 	end
@@ -48,7 +49,7 @@ class ImagesController < ApplicationController
 
     private
     def image_params
-    	params.require(:image).permit(:description)
+    	params.require(:image).permit(:description,:foto)
     end
 
     def set_image

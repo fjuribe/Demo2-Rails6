@@ -1,1 +1,15 @@
-<p>Hola desde mi vista index</p>
+<div class="col-6">
+	<figure>
+	<!-- 	<%= image_tag url_for(image.foto) %> -->
+	<% if image.foto.attached? %>
+	    <%= image_tag image.foto.preview(resize_to_limit: [100, 100]) %>
+	<% end %>
+		<!-- <img src="../../../public/img/bills.jpg" class="figure-img img-fluid rounded" alt=""> -->
+		<figcaption class="figure-caption">
+			<%= link_to 'Editar',edit_image_path(image) %>
+			<%= link_to 'Eliminar',image,method: :delete,data:{confirm:"seguro?"} %>
+		</figcaption>
+	</figure>
+	
+</div>
+<br>
