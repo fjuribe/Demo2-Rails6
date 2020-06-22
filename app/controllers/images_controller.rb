@@ -18,9 +18,9 @@ class ImagesController < ApplicationController
     	#render plain: params[:image].inspect
     	@image=Image.new(image_params)
     	if @image.save
-    		redirect_to @image
+    		return redirect_to images_path
     	else
-    		render :new
+    		return render :new
     	end
     end
 

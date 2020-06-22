@@ -1,8 +1,25 @@
-<p><%= title %></p>
-    <%= form_for @image ,html: { multipart: true } do |f| %>
-    <%= f.label :description %>
-    <%= f.text_field :description ,class:'form-control' %><br>
-    <%= f.label :foto %>
-    <%= f.file_field :foto %><br>
-    <%= f.submit  %>
+<% if @image.errors.any? %>
+   <div class="alert alert-danger">
+   	 <h4 class="alert-heading">Oh No!!</h4>
+   	 <p>Ha ocurrido un error</p>
+   </div>
 <% end %>
+
+
+<p><%= title %></p>
+<div class="form-group">
+	<%= form_for @image ,html: { multipart: true } do |f| %>
+	<%= f.label :description %>
+	<%= f.text_field :description ,class:'form-control' %><br>
+    <% if @image.errors[:description].any? %>
+       <span class="badge badge-pill badge-danger">
+       	  <%= @image.errors[:description].first %>
+       </span>
+    <% end %>
+
+
+	<%= f.label :foto %>
+	<%= f.file_field :foto %><br>
+	<%= f.submit "Enviar",:class=>'btn btn-primary' %>
+	<% end %>
+</div>
