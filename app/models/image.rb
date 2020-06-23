@@ -4,6 +4,8 @@ class Image < ApplicationRecord
 	validates :description, presence: true
 	validate :foto_validator
 
+	belongs_to :user
+
 	private
 	  def foto_validator
 	  	if !foto.attached?

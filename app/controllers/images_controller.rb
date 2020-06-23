@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
 	before_action :set_image, only:[:show,:edit,:update,:destroy]
     #image.foto.attach(image_params[:foto])
 	def index
-		@image=Image.all
+		@image=Image.where(user_id: current_user.id)
 	end
 
 
@@ -16,7 +16,7 @@ class ImagesController < ApplicationController
 
 	def create
     	#render plain: params[:image].inspect
-    	@image=Image.new(image_params)
+        @image=current_user.images.new(image_params)
     	if @image.save
     		return redirect_to images_path
     	else
