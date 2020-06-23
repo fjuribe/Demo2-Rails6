@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Galeria</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+	<title>Galeria</title>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
-  <div class="container">
-    <%= yield %>
-  </div>
+	<ul class="nav justify-content-end">
+		<% if user_signed_in? %>
+		<li class="nav-item">
+			<%= link_to "Salir",destroy_user_session_path, method: :delete %>
+		</li>
+		<% else %>
+		<li class="nav-item">
+			<%= link_to "Ingresar", new_user_session_path %>
+		</li>
+		<li class="nav-item">
+			<%= link_to "Registrarse", new_user_registration_path %>
+		</li>
+		<% end %>
+	</ul>
+	<div class="container">
+		<div>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</div>
+		<%= yield %>
+	</div>
 </body>
 </html>
