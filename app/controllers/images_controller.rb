@@ -1,12 +1,9 @@
 class ImagesController < ApplicationController
 	before_action :set_image, only:[:show,:edit,:update,:destroy]
-    #image.foto.attach(image_params[:foto])
+   
 	def index
-		@image=Image.where(user_id: current_user.id)
+		 @image=Image.where(user_id: current_user.id)
 	end
-
-
-
 
 	def new
         @image=Image.new
