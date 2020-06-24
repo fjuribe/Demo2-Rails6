@@ -1,5 +1,20 @@
 <h1>Imagenes</h1>
+		<h1><%= current_user.name %></h1>
 <br>
+<div class="row">
+	<div class="col-4">
+		
+	</div>
+	<div class="col-8">
+		<div>
+			<ul class="nav">
+				<li>
+					<p><strong><%= @image.count %></strong> publicadas</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 <div class="card-columns">
 	<% @image.each do |image| %>
 	<div class="card">
@@ -14,4 +29,5 @@
 	</div>
 	<% end %>
 </div>
+
 <br>

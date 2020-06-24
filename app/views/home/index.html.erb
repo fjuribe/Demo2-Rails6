@@ -1,6 +1,38 @@
 <% if user_signed_in?%>
 <h1>Bienvenido <%= current_user.name %></h1>
+<br>
+<div class="row">
+	<div class="col-4">
+		
+	</div>
+	<div class="col-8">
+		<div>
+			<ul class="nav">
+				<li>
+					<p><strong><%= @image.count %></strong> publicadas</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="card-columns">
+	<% @image.each do |image| %>
+	<div class="card">
+		<% if image.foto.attached? %>
+		<%= image_tag image.foto, :style=>'width:250px;',class:"figure-img img-fluid rounded"%>
+		<% end %>
+		<div class="card-body">
+			<%= link_to 'Editar',edit_image_path(image) %>
+			<%= link_to 'Eliminar',image,method: :delete,data:{confirm:"seguro?"} %>
+		</div>
+		<!-- <img src="../../../public/img/bills.jpg" class="figure-img img-fluid rounded" alt=""> -->
+	</div>
+	<% end %>
+</div>
+<%= will_paginate @image %>
+<br>
+
 <% else%>
- <h1>Rails</h1>
+<h1>Rails</h1>
 <% end %> 
 

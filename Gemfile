@@ -56,3 +56,7 @@ gem 'popper_js', '~> 1.14.5'
 gem 'rails-i18n'
 gem 'devise'
 gem "mini_magick"
+
+#paginacion
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
